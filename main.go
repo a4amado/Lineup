@@ -1,5 +1,5 @@
 package main
 
-import "Lineup/line"
+import "github.com/a4amado/Lineup/line"
 
 var New = line.New
