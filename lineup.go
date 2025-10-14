@@ -1,4 +1,4 @@
-package main
+package Lineup
 
 import "github.com/a4amado/Lineup/line"
 
