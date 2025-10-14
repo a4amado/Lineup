@@ -1,4 +1,4 @@
-package Lineup
+package main
 
 import "Lineup/line"
 
