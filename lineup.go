@@ -3,3 +3,4 @@ package Lineup
 import "github.com/a4amado/Lineup/line"
 
 var New = line.New
+var QueueOptions = line.QueueOptions
