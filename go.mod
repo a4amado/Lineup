@@ -1,4 +1,4 @@
-module Lineup
+module github.com/a4amado/Lineup
 
 go 1.24.5
 
