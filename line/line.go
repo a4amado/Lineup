@@ -35,7 +35,7 @@ func (q *Queue) recalibrateIndexes() {
 
 		newLine := []*QueueItem{}
 		q.lock.Lock()
-		fmt.Println(q.line)
+		
 		for _, item := range q.line {
 
 			if item.purged {
