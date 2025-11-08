@@ -29,15 +29,8 @@ queue := Lineup.New(Lineup.QueueOptions{
 
 item1 := queue.Place()
 defer item1.Purge() // Clean up when done
+<- item1 // wait
 
-item2 := queue.Place()
-defer item2.Purge()
-
-item3 := queue.Place()
-defer item3.Purge()
-
-// Or manually purge an item before it's processed
-item2.Purge() // item1 and item3 will proceed, item2 will be skipped
 ```
 
 ## API Reference
