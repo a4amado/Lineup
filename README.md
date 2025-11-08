@@ -18,50 +18,6 @@ go get github.com/a4amado/Lineup
 
 ## Usage
 
-### Basic Example
-
-```go
-package main
-
-import (
-    "fmt"
-    "time"
-    "github.com/a4amado/Lineup"
-)
-
-func main() {
-    // Create a new queue that allows 3 items to be processed concurrently
-    queue := Lineup.New(Lineup.QueueOptions{
-        MaxProcessing: 3,
-    })
-
-    // Place items in the queue
-    for i := 0; i < 10; i++ {
-        item := queue.Place()
-        
-        go func(id int, item *Lineup.QueueItem) {
-            defer item.Purge() // Ensure cleanup when done
-            
-            // Wait for your turn (position 1 means you can proceed)
-            position := <-item.Halt
-            
-            if position == 1 {
-                fmt.Printf("Item %d is now processing\n", id)
-                // Do your work here
-                time.Sleep(2 * time.Second)
-                fmt.Printf("Item %d finished processing\n", id)
-            } else {
-                fmt.Printf("Item %d is waiting at position %d\n", id, position)
-            }
-        }(i, item)
-    }
-
-    // Keep the program running
-    time.Sleep(10 * time.Second)
-}
-```
-
-
 ### Purging Items
 
 You can remove items from the queue before they are processed. It's recommended to use `defer` to ensure cleanup:
@@ -133,16 +89,7 @@ A channel that receives the item's position in the queue:
 
 The queue automatically recalibrates positions every 300ms, so items will receive updated positions as the queue progresses.
 
-**Example:**
-```go
-item := queue.Place()
-defer item.Purge() // Clean up when done
-
-position := <-item.Halt
-if position == 1 {
-    // Process the item
-}
-```
+**Note:** The `Halt` channel continuously receives position updates every 300ms. You should read from it in a loop to track position changes as items move through the queue.
 
 ## How It Works
 
