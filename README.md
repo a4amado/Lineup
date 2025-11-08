@@ -32,28 +32,7 @@ defer item1.Purge() // Clean up when done
 <- item1 // wait
 
 ```
-
-## API Reference
-
-All types and functions are available from the `Lineup` package: `github.com/a4amado/Lineup`
-
-### `New(opts QueueOptions) *Queue`
-
-Creates a new queue instance.
-
-**Parameters:**
-- `opts QueueOptions` - Configuration options for the queue
-  - `MaxProcessing int` - Maximum number of items that can be processed concurrently
-
-**Returns:** A pointer to a new `Queue` instance
-
-**Example:**
-```go
-queue := Lineup.New(Lineup.QueueOptions{
-    MaxProcessing: 3,
-})
-```
-
+ 
 ### `Queue.Place() *QueueItem`
 
 Adds a new item to the queue and returns a `QueueItem`.
