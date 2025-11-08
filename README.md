@@ -2,6 +2,8 @@
 
 A lightweight, thread-safe queue management library for Go that allows you to control concurrent processing with automatic position tracking.
 
+<img src="assets/lineup.png"/>
+
 ## Features
 
 - **Thread-safe queue management** - Built with mutex locks for safe concurrent access
