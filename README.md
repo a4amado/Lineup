@@ -6,7 +6,7 @@ A lightweight, thread-safe queue management library for Go that allows you to co
 
 - **Thread-safe queue management** - Built with mutex locks for safe concurrent access
 - **Concurrent processing control** - Limit the number of items processed simultaneously
-- **Automatic position tracking** - Items automatically receive their position in the queue
+- **Automatic position tracking (O(N))** - Items automatically receive their position in the queue
 - **Queue item purging** - Remove items from the queue at any time
 - **Simple API** - Easy to use with minimal configuration
 
