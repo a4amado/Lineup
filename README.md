@@ -29,9 +29,12 @@ queue := Lineup.New(Lineup.QueueOptions{
     MaxProcessing: 2,
 })
 
-item1 := queue.Place()
-defer item1.Purge() // Clean up when done
-<- item1 // wait
+place := queue.Place()
+defer place.Purge()
+
+for position := range place.Halt {
+    fmt.Printf("Your posiion is %d", position)
+}
 
 ```
  
